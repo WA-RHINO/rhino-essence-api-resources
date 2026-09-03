@@ -1,0 +1,126 @@
+# This .gitignore is from the Epi Coders Standard Repository Template: https://github.com/DOH-EPI-Coders/epi-coders-standard-repo
+# It was designed for R and Python users primarily
+# Please leave these comments in your .gitignore if you use this template.
+# Modify this template as needed for your project.
+
+### ---------------------------- ###
+### ADD YOUR CUSTOMIZATIONS HERE ###
+### ---------------------------- ###
+
+# User additions and modifications
+/data/
+/cred/
+
+# Credentials and sensitive information - Add your credential files here if needed and remove examples
+*.env
+secrets.yml
+config.json
+settings.ini
+api_keys.json
+token.txt
+
+### ----------------------------------------------------- ###
+### REMOVE OR COMMENT OUT ITEMS BELOW THIS LINE AS NEEDED ###
+### ----------------------------------------------------- ###
+
+# R specific files
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+.Rprofile
+*.Rproj
+
+# R markdown files and related artifacts
+*.html
+*.pdf
+*.docx
+*.pptx
+*.odt
+*.rds
+*.rda
+*.Rdata
+
+# Python specific files
+__pycache__/
+*.py[cod]
+*.env
+.venv/
+venv/
+env/
+*.pyo
+*.whl
+
+# ipynb/Jupyter Notebook specific
+*.ipynb_checkpoints
+
+# Virtual environment files
+.Python
+ENV/
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+
+# SAS specific files
+*.sas7bdat
+*.log
+*.lst
+*.sas7bcat
+*.sas
+
+# STATA specific files
+*.dta
+*.smcl
+*.stpr
+*.stlog
+*.ado
+
+# JavaScript/Node.js specific files
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
+jspm_packages/
+
+# Posit Workbench specific files
+/rsconnect/
+/.renv/
+
+# Positron specific files
+.positron/
+
+# Data files
+*.csv
+*.tsv
+*.sav
+*.dta
+*.xlsx
+*.xls
+*.sas7bdat
+*.feather
+*.parquet
+*.h5
+*.json
+*.xml
+*.sqlite
+
+# Logs and local development files
+*.log
+*.out
+*.sqlite3
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE and editor-specific files
+.Rproj.user/
+.Rproj/
+.vscode/
+.idea/
+*.swp
+*~

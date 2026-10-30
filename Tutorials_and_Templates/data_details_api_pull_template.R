@@ -23,10 +23,15 @@ url <- "https://essence2.syndromicsurveillance.org/nssp_essence/api/dataDetails?
 ## see the ESSENCE data dictionary > ESSENCE API and Data Details tab > column B "API URL Name" 
 ## https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.cdc.gov%2Fnssp%2Fbiosense%2Fdocs%2FNSSP-Data-Dictionary-508.xlsx&wdOrigin=BROWSELINK 
 ## comment out if you don't want to specify, below are some examples
+## always pull C_BioSense_ID (or EssenceID) otherwise the API will dedup on the selected fields which will result in fewer visits than are actually in the ESSENCE result
 select_fields <- c("C_BioSense_ID", "Date", "CCDDcategory_flat") # comma separated, each field in their own quotes
 select_fields_url <- paste0("&field=",paste(select_fields, collapse = "&field=")) # do not edit here
 if (exists("select_fields")) {
-  url_new <- paste0(url,select_fields_url)
+  if (str_detect(str_to_lower(select_fields_url), "c_biosense_id|essenceid")) {
+    url_new <- paste0(url,select_fields_url)
+  } else {
+    print("Error: Unique visit ID (either C_BioSense_ID or EssenceID) not detected in select_fields. Please add one to avoid API deduplication bug.")
+  }
 } else {
   url_new <- url
 }

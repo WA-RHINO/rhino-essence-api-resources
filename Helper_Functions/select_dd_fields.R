@@ -1,8 +1,10 @@
 # This function will modify the data details API to only include the fields included in the "fields" argument.
-## see the ESSENCE data dictionary > ESSENCE API and Data Details tab > column B "API URL Name" 
+
+# id_field: default is "C_BioSense_ID" and does not need to be specified when calling the function unless you want to use "EssenceID" instead. This is required otherwise the API will deduplicate the results only on the other fields pulled and return too few visits. 
+# fields: each field should be comma separated, each field in their own quotes
+## see the NSSP ESSENCE data dictionary > ESSENCE API and Data Details tab > column B "API URL Name" 
 ## https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.cdc.gov%2Fnssp%2Fbiosense%2Fdocs%2FNSSP-Data-Dictionary-508.xlsx&wdOrigin=BROWSELINK 
 
-# The default id_field is "C_BioSense_ID" and does not need to be specified when calling the function unless you want to use "EssenceID" instead. This is required otherwise the API will deduplicate the results only on the other fields pulled and return too few visits. 
 
 select_dd_fields <- function(url, id_field = "C_BioSense_ID", fields = NULL) {
   
@@ -19,7 +21,7 @@ select_dd_fields <- function(url, id_field = "C_BioSense_ID", fields = NULL) {
 }
 
 ## Example:
-# url <- "https://essence2.syndromicsurveillance.org/nssp_essence/api/dataDetails?datasource=va_hosp&startDate=9Dec2025&medicalGroupingSystem=essencesyndromes&userId=5099&endDate=9Mar2026&percentParam=noPercent&hospFacilityType=emergency%20care&aqtTarget=DataDetails&ccddCategory=cdc%20broad%20acute%20respiratory%20dd%20v1&geographySystem=hospitalregion&detector=probrepswitch&timeResolution=daily&hasBeenE=1" # copy/paste directly from ESSENCE, date and field changes will happen in the next steps
+# url <- "https://waessence.inductivehealth.com/ih_essence/api/dataDetails?datasource=va_hosp&startDate=1Aug2026&medicalGroupingSystem=essencesyndromes&userId=5099&csrfPreventionSalt=vfamY1Hbw3WEsDNTJ5Jv&endDate=30Oct2026&percentParam=noPercent&hospFacilityType=emergency%20care&aqtTarget=DataDetails&ccddCategory=cdc%20broad%20acute%20respiratory%20dd%20v1&geographySystem=hospital&detector=probrepswitch&timeResolution=daily&hasBeenE=1" # copy/paste directly from ESSENCE, date and field changes will happen in the next steps
 # 
 # url_new <- select_dd_fields(url = url, fields = c("Date", "CCDDcategory_flat"))
 

@@ -11,6 +11,7 @@ source("https://raw.githubusercontent.com/sara-chronister/synchron/refs/heads/ma
 ### detect_elements() provide a vector of terms/codes you want to search for, the field you want to search in, and an optional group name for if any of the terms are found, returns a data frame with a 0/1 variable for each term-field pairing plus the group name if included
 source("https://raw.githubusercontent.com/sara-chronister/synchron/refs/heads/main/R/detect_elements.R")
 source("https://raw.githubusercontent.com/WA-RHINO/rhino-essence-api-resources/refs/heads/2-data-details-dedup/Helper_Functions/set_myProfile.R")
+source("https://raw.githubusercontent.com/WA-RHINO/rhino-essence-api-resources/refs/heads/main/Helper_Functions/select_dd_fields.R")
 
 load("~/myProfileWA.rda") # see the save_wa_essence_credentials.R script for instructions
 load("~/myProfileNSSP.rda") # see the save_nssp_essence_credentials.R script for instructions
